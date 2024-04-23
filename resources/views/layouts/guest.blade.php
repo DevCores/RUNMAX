@@ -5,7 +5,9 @@
         <meta charset="utf-8" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <script src="/scripts/jquery.min.js"></script>
+        
+        
         <!-- Site favicon -->
         <link
             rel="apple-touch-icon"
@@ -48,6 +50,11 @@
             type="text/css"
             href="/plugins/jquery-steps/jquery.steps.css"
         />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/plugins/select2/dist/css/select2.min.css"
+        />
 
         <link rel="stylesheet" type="text/css" href="/styles/style.css" />
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -84,12 +91,17 @@
         </div>
         {{ $slot }}
         <!-- js -->
+        
         <script src="/scripts/core.js"></script>
         <script src="/scripts/script.min.js"></script>
         <script src="/scripts/process.js"></script>
         <script src="/scripts/layout-settings.js"></script>
+        <script src="/scripts/layout-settings.js"></script>
         <script src="/plugins/jquery-steps/jquery.steps.js"></script>
         <script src="/scripts/steps-setting.js"></script>
+        <script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+        <script src="/scripts/mask.js"></script>
+        
     </body>
 </html>
 <!DOCTYPE html>
