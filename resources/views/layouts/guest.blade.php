@@ -57,7 +57,7 @@
         />
 
         <link rel="stylesheet" type="text/css" href="/styles/style.css" />
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/js/app.js'])
     </head>
     <body class="login-page">
         <div class="login-header box-shadow">
