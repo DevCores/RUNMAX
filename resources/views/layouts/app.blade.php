@@ -54,7 +54,7 @@
         />
         <link rel="stylesheet" type="text/css" href="/styles/style.css" />
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/js/app.js'])
     </head>
     <body >
         @include('layouts.header')
@@ -247,10 +247,18 @@
 
         <div class="main-container">
             <div class="xs-pd-20-10 pd-ltr-20">
-                <div class="title pb-20">
-                    @if (isset($header))
-                        {{ $header }}
-                    @endif
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="title">
+                                <h4>
+                                    @if (isset($header))
+                                        {{ $header }}
+                                    @endif
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {{ $slot }}
                 @include('layouts.quick')

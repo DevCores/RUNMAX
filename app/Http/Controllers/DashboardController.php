@@ -11,11 +11,6 @@ class DashboardController extends Controller
         return view('pages.dashboard');
     }
 
-    public function roles()
-    {
-        return view('pages.roles.index');
-    }
-
     public function instructions()
     {
         return view('pages.instructions.index');

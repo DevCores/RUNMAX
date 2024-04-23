@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RoleController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,8 +13,10 @@ Route::controller(DashboardController::class)->group(function(){
     Route::prefix('dashboard')->as('dashboard.')->group(function(){
         Route::get('/', 'dashboard')->name('index');
     });
-    Route::prefix('roles')->as('roles.')->group(function(){
-        Route::get('/', 'roles')->name('index');
+    Route::controller(RoleController::class)->prefix('roles')->as('roles.')->group(function(){
+        Route::get('/', 'index')->name('index');
+        Route::get('/add', 'add')->name('add');
+        Route::patch('update', 'update')->name('update');
     });
     Route::prefix('instructions')->as('instructions.')->group(function(){
         Route::get('/', 'instructions')->name('index');

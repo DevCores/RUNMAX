@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->boolean('rights_0')->default(0);
@@ -44,7 +43,7 @@ return new class extends Migration
             $table->id();
             $table->string('phone');
             $table->unsignedBigInteger('role_id')->nullable();
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->boolean('superadmin')->default(0);
             $table->string('avatar')->default('/images/avatar.png');
             $table->string('email')->unique();
@@ -75,6 +74,13 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['role_id']);
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->bigInteger('role_id')->change();
+        });
         Schema::dropIfExists('roles');
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');

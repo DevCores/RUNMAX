@@ -1,43 +1,43 @@
 <div class="sidebar-menu">
     <ul id="accordion-menu">
         <li>
-            <a href="{{route('dashboard.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('dashboard.index')) active @endif">
+            <a href="{{route('dashboard.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('dashboard.*')) active @endif">
                 <span class="micon bi bi-house"></span
                 ><span class="mtext">Dashboard</span>
             </a>
         </li>
         <li>
-            <a href="{{route('roles.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('roles.index')) active @endif">
+            <a href="{{route('roles.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('roles.*')) active @endif">
                 <span class="micon bi bi-people-fill"></span
                 ><span class="mtext">Roles</span>
             </a>
         </li>
         <li>
-            <a href="{{route('instructions.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('instructions.index')) active @endif">
+            <a href="{{route('instructions.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('instructions.*')) active @endif">
                 <span class="micon bi bi-book"></span
                 ><span class="mtext">Instructions</span>
             </a>
         </li>
         <li>
-            <a href="{{route('transactions.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('transactions.index')) active @endif">
+            <a href="{{route('transactions.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('transactions.*')) active @endif">
                 <span class="micon bi bi-list-columns-reverse"></span
                 ><span class="mtext">Transactions</span>
             </a>
         </li>
         <li>
-            <a href="{{route('finance.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('finance.index')) active @endif">
+            <a href="{{route('finance.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('finance.*')) active @endif">
                 <span class="micon bi bi-currency-exchange"></span
                 ><span class="mtext">Finance</span>
             </a>
         </li>
         <li>
-            <a href="{{route('supplies.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('supplies.index')) active @endif">
+            <a href="{{route('supplies.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('supplies.*')) active @endif">
                 <span class="micon bi bi-inboxes-fill"></span
                 ><span class="mtext">Supplies</span>
             </a>
         </li>
         <li>
-            <a href="{{route('settings.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('settings.index')) active @endif">
+            <a href="{{route('settings.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('settings.*')) active @endif">
                 <span class="micon icon-copy ti-settings"></span
                 ><span class="mtext">Settings</span>
             </a>
