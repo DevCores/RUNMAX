@@ -16,7 +16,7 @@
                                 <div class="select-role">
                                     <x-auth-session-status class="mb-4" :status="session('status')" />
                                 </div>
-                                <div class="input-group custom">
+                                <div class="input-group has-success">
                                     <x-text-input id="email" class="form-control form-control-lg" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Email"/>
                                     <div class="input-group-append custom">
                                         <span class="input-group-text"
