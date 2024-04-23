@@ -16,7 +16,7 @@
                                 <div class="select-role">
                                     <x-auth-session-status class="mb-4" :status="session('status')" />
                                 </div>
-                                <div class="input-group @if($errors->get('email')) has-danger @endif">
+                                <div class="input-group ">
                                     <x-text-input id="email" class="form-control form-control-lg" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Email"/>
                                     <div class="input-group-append custom">
                                         <span class="input-group-text"
@@ -24,8 +24,8 @@
                                         ></span>
                                     </div>
                                 </div>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                                <div class="input-group @if($errors->get('password')) has-danger @endif">
+                                <x-input-error :messages="$errors->get('email')" class="mt-2 @if($errors->get('email')) has-danger @endif" />
+                                <div class="input-group ">
                                     <x-text-input id="password" class="form-control form-control-lg"
                                                     type="password"
                                                     name="password"
@@ -37,7 +37,7 @@
                                         ></span>
                                     </div>
                                 </div>
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('password')" class="mt-2 @if($errors->get('password')) has-danger @endif" />
                                 <div class="row pb-30">
                                     <div class="col-6">
                                         <div class="custom-control custom-checkbox">
