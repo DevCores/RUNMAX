@@ -35,4 +35,9 @@ class DashboardController extends Controller
     {
         return view('pages.supplies.index');
     }
+
+    public function settings()
+    {
+        return view('pages.settings.index');
+    }
 }

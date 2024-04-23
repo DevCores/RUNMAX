@@ -27,6 +27,9 @@ Route::controller(DashboardController::class)->group(function(){
     Route::prefix('supplies')->as('supplies.')->group(function(){
         Route::get('/', 'supplies')->name('index');
     });
+    Route::prefix('settings')->as('settings.')->group(function(){
+        Route::get('/', 'settings')->name('index');
+    });
     
 })->middleware(['auth', 'verified'])->name('pages');
 

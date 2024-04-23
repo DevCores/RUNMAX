@@ -56,7 +56,7 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    <body >
         @include('layouts.header')
         <div class="right-sidebar">
             <div class="sidebar-title">

@@ -36,6 +36,12 @@
                 ><span class="mtext">Supplies</span>
             </a>
         </li>
+        <li>
+            <a href="{{route('settings.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('settings.index')) active @endif">
+                <span class="micon icon-copy ti-settings"></span
+                ><span class="mtext">Settings</span>
+            </a>
+        </li>
         <!-- <li class="dropdown">
             <a href="javascript:;" class="dropdown-toggle">
                 <span class="micon bi bi-house"></span
