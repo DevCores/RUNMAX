@@ -11,9 +11,41 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id();
+            $table->integer('user_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
+            $table->boolean('rights_0')->default(0);
+            $table->boolean('rights_1')->default(0);
+            $table->boolean('rights_2')->default(0);
+            $table->boolean('rights_3')->default(0);
+            $table->boolean('rights_4')->default(0);
+            $table->boolean('rights_5')->default(0);
+            $table->boolean('rights_6')->default(0);
+            $table->boolean('rights_7')->default(0);
+            $table->boolean('rights_8')->default(0);
+            $table->boolean('rights_9')->default(0);
+            $table->boolean('rights_10')->default(0);
+            $table->boolean('rights_11')->default(0);
+            $table->boolean('rights_12')->default(0);
+            $table->boolean('rights_13')->default(0);
+            $table->boolean('rights_14')->default(0);
+            $table->boolean('rights_15')->default(0);
+            $table->boolean('rights_16')->default(0);
+            $table->boolean('rights_17')->default(0);
+            $table->boolean('rights_18')->default(0);
+            $table->boolean('rights_19')->default(0);
+            $table->boolean('rights_20')->default(0);
+            $table->timestamps();
+        });
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('phone');
+            $table->unsignedBigInteger('role_id')->nullable();
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->boolean('superadmin')->default(0);
             $table->string('avatar')->default('/images/avatar.png');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -43,6 +75,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('roles');
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
