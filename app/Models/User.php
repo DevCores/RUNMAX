@@ -22,6 +22,7 @@ class User extends Authenticatable
         'avatar',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -49,6 +50,6 @@ class User extends Authenticatable
 
     public function role(): HasOne
     {
-        return $this->hasOne(Role::class);
+        return $this->hasOne(Role::class,'id','role_id');
     }
 }

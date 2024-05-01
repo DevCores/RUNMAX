@@ -16,9 +16,9 @@ class DashboardController extends Controller
         return view('pages.instructions.index');
     }
 
-    public function transactions()
+    public function orders()
     {
-        return view('pages.transactions.index');
+        return view('pages.orders.index');
     }
 
     public function finance()

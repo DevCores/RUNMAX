@@ -19,9 +19,9 @@
             </a>
         </li>
         <li>
-            <a href="{{route('transactions.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('transactions.*')) active @endif">
+            <a href="{{route('orders.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('orders.*')) active @endif">
                 <span class="micon bi bi-list-columns-reverse"></span
-                ><span class="mtext">Transactions</span>
+                ><span class="mtext">Orders</span>
             </a>
         </li>
         <li>

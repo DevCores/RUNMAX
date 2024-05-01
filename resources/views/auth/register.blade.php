@@ -12,6 +12,7 @@
                             <div class="wizard-content">
                                 <form method="POST" action="{{ route('register') }}" class="tab-wizard2 wizard-circle wizard">
                                     @csrf
+                                    <input name='role' type="text" value='{{$_GET['role']??0}}' hidden>
                                     <h5>Basic Account Credentials</h5>
                                     <section>
                                         <div class="form-wrap max-width-600 mx-auto">

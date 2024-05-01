@@ -3,7 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 return new class extends Migration
 {
     /**
@@ -15,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
+            $table->string('link')->nullable();
             $table->boolean('rights_0')->default(0);
             $table->boolean('rights_1')->default(0);
             $table->boolean('rights_2')->default(0);
@@ -38,12 +41,42 @@ return new class extends Migration
             $table->boolean('rights_20')->default(0);
             $table->timestamps();
         });
+        Role::create([
+            'name'=>'Admin',
+            'slug'=>'admin',
+            'rights_0'=>1,
+            'rights_1'=>1,
+            'rights_2'=>1,
+            'rights_3'=>1,
+            'rights_4'=>1,
+            'rights_5'=>1
+        ]);
+        Role::create([
+            'name'=>'Driver',
+            'slug'=>'driver',
+            'rights_0'=>0,
+            'rights_1'=>1,
+            'rights_2'=>1,
+            'rights_3'=>0,
+            'rights_4'=>0,
+            'rights_5'=>0
+        ]);
+        Role::create([
+            'name'=>'Seller',
+            'slug'=>'seller',
+            'rights_0'=>0,
+            'rights_1'=>1,
+            'rights_2'=>1,
+            'rights_3'=>1,
+            'rights_4'=>0,
+            'rights_5'=>0
+        ]);
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('phone');
             $table->unsignedBigInteger('role_id')->nullable();
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->nullOnDelete();
             $table->boolean('superadmin')->default(0);
             $table->string('avatar')->default('/images/avatar.png');
             $table->string('email')->unique();
@@ -52,6 +85,13 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        User::create([
+            'phone'=>'379999999999',
+            'email'=>'admin@mail.ru',
+            'password'=>Hash::make('admin'),
+            'role_id'=>1,
+        ]);
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
@@ -77,12 +117,8 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign(['role_id']);
         });
-
-        Schema::table('users', function (Blueprint $table) {
-            $table->bigInteger('role_id')->change();
-        });
-        Schema::dropIfExists('roles');
         Schema::dropIfExists('users');
+        Schema::dropIfExists('roles');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }

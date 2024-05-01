@@ -8,7 +8,7 @@ use App\Http\Controllers\RoleController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-
+Route::middleware('auth')->group(function () {
 Route::controller(DashboardController::class)->group(function(){
     Route::prefix('dashboard')->as('dashboard.')->group(function(){
         Route::get('/', 'dashboard')->name('index');
@@ -16,13 +16,17 @@ Route::controller(DashboardController::class)->group(function(){
     Route::controller(RoleController::class)->prefix('roles')->as('roles.')->group(function(){
         Route::get('/', 'index')->name('index');
         Route::get('/add', 'add')->name('add');
-        Route::patch('update', 'update')->name('update');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::get('/delete/{id}', 'delete')->name('delete');
+        Route::get('/generate/{id}', 'generate')->name('generate');
+        Route::post('/create', 'create')->name('create');
+        Route::post('/update', 'update')->name('update');
     });
     Route::prefix('instructions')->as('instructions.')->group(function(){
         Route::get('/', 'instructions')->name('index');
     });
-    Route::prefix('transactions')->as('transactions.')->group(function(){
-        Route::get('/', 'transactions')->name('index');
+    Route::prefix('orders')->as('orders.')->group(function(){
+        Route::get('/', 'orders')->name('index');
     });
     Route::prefix('finance')->as('finance.')->group(function(){
         Route::get('/', 'finance')->name('index');
@@ -33,11 +37,8 @@ Route::controller(DashboardController::class)->group(function(){
     Route::prefix('settings')->as('settings.')->group(function(){
         Route::get('/', 'settings')->name('index');
     });
-    
-})->middleware(['auth', 'verified'])->name('pages');
+})->name('pages');
 
-
-Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
