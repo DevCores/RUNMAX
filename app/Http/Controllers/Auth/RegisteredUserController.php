@@ -41,7 +41,7 @@ class RegisteredUserController extends Controller
             'phone' => $request->code.$request->number,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role_id' => Role::where('link',$request->role)->first()?Role::where('link',$request->role)->first()->id:null,
+            'role_id' => Role::where('link',$request->role)->first()?Role::where('link',$request->role)->first()->id:3,
         ]);
 
         event(new Registered($user));
