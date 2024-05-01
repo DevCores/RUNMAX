@@ -6,42 +6,54 @@
                 ><span class="mtext">Dashboard</span>
             </a>
         </li>
+        @if(Auth::user()->role->rights_0)
         <li>
             <a href="{{route('roles.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('roles.*')) active @endif">
                 <span class="micon bi bi-people-fill"></span
                 ><span class="mtext">Roles</span>
             </a>
         </li>
+        @endif
+        @if(Auth::user()->role->rights_1)
         <li>
             <a href="{{route('instructions.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('instructions.*')) active @endif">
                 <span class="micon bi bi-book"></span
                 ><span class="mtext">Instructions</span>
             </a>
         </li>
+        @endif
+        @if(Auth::user()->role->rights_2)
         <li>
             <a href="{{route('orders.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('orders.*')) active @endif">
                 <span class="micon bi bi-list-columns-reverse"></span
                 ><span class="mtext">Orders</span>
             </a>
         </li>
+        @endif
+        @if(Auth::user()->role->rights_3)
         <li>
             <a href="{{route('finance.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('finance.*')) active @endif">
                 <span class="micon bi bi-currency-exchange"></span
                 ><span class="mtext">Finance</span>
             </a>
         </li>
+        @endif
+        @if(Auth::user()->role->rights_4)
         <li>
             <a href="{{route('supplies.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('supplies.*')) active @endif">
                 <span class="micon bi bi-inboxes-fill"></span
                 ><span class="mtext">Supplies</span>
             </a>
         </li>
+        @endif
+        @if(Auth::user()->role->rights_5)
         <li>
             <a href="{{route('settings.index')}}" class="dropdown-toggle no-arrow @if(request()->routeIs('settings.*')) active @endif">
                 <span class="micon icon-copy ti-settings"></span
                 ><span class="mtext">Settings</span>
             </a>
         </li>
+        @endif
         <!-- <li class="dropdown">
             <a href="javascript:;" class="dropdown-toggle">
                 <span class="micon bi bi-house"></span
