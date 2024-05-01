@@ -54,7 +54,7 @@ class RoleController extends Controller
 
     public function update(Request $request)
     {
-        if ($requers->id <= 3) {
+        if ($request->id <= 3) {
             Role::updateOrCreate([
                 'id'=>$request->id
                 ],
